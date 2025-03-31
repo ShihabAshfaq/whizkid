@@ -10,7 +10,7 @@ import Evidence from './components/Evidence';
 import Experts from './components/Experts';
 import './App.css';
 
-import backgroundVideo from './Back.mov';
+import backgroundVideo from './Back.mp4';
 import image1 from './ipad.png';
 import image2 from './iphone.png';
 import Image5 from './Dinosaur test 1.png';
@@ -23,7 +23,7 @@ import evidenceImage3 from './Reddot.png';
 
 const App = () => {
   const [showBanner, setShowBanner] = useState(true);
-  const evidenceImages = [evidenceImage1, evidenceImage2, evidenceImage3];
+  const evidenceImages = [evidenceImage1]; // Only include one instance of the Red Dot image.
 
   return (
     <div>

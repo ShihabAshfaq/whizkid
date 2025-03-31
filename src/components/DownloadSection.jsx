@@ -6,6 +6,10 @@ const DownloadSection = ({ image1, image2 }) => {
   const contentRef = useRef(null);
 
   useEffect(() => {
+    const currentBackImageRef = backImageRef.current;
+    const currentFrontImageRef = frontImageRef.current;
+    const currentContentRef = contentRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,14 +22,14 @@ const DownloadSection = ({ image1, image2 }) => {
       { threshold: 0.2 }
     );
 
-    if (backImageRef.current) observer.observe(backImageRef.current);
-    if (frontImageRef.current) observer.observe(frontImageRef.current);
-    if (contentRef.current) observer.observe(contentRef.current);
+    if (currentBackImageRef) observer.observe(currentBackImageRef);
+    if (currentFrontImageRef) observer.observe(currentFrontImageRef);
+    if (currentContentRef) observer.observe(currentContentRef);
 
     return () => {
-      if (backImageRef.current) observer.unobserve(backImageRef.current);
-      if (frontImageRef.current) observer.unobserve(frontImageRef.current);
-      if (contentRef.current) observer.unobserve(contentRef.current);
+      if (currentBackImageRef) observer.unobserve(currentBackImageRef);
+      if (currentFrontImageRef) observer.unobserve(currentFrontImageRef);
+      if (currentContentRef) observer.unobserve(currentContentRef);
     };
   }, []);
 

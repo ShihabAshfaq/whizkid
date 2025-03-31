@@ -486,19 +486,17 @@
   }
 }
 
-/* Third Page Styling */
 .third-page {
-  background-image: url('./3back.png'); 
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   padding: 50px;
-  color: #fff; 
+  color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
+
 
 
 
@@ -528,43 +526,38 @@
 }
 
 
-.testimonials-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto; 
+.third-page .testimonials-container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  position: relative;
-  align-items: center; 
+  position: relative; 
+  align-items: flex-start; 
 }
 
-
-.testimonial-card {
+.third-page .testimonial-card {
   background: rgba(255, 245, 245, 0.98);
   border-radius: 25px;
-  padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
+  padding: 30px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-.testimonial-card:nth-child(1) {
-  align-self: flex-start; 
-  width: 160%
+.third-page .testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.testimonial-card:nth-child(2) {
-  grid-column: 2; 
-  grid-row: 2; 
-  
+.third-page .testimonial-card:nth-child(1),
+.third-page .testimonial-card:nth-child(2),
+.third-page .testimonial-card:nth-child(3) {
+  margin-top: 0;
+  width: auto;
+  grid-column: auto;
+  grid-row: auto;
+  align-self: auto;
 }
 
-.testimonial-card:nth-child(3) {
-  align-self: flex-start; 
-grid-column: 3;
-margin-top: -80px;
-width:80;
-}
 
 
 
@@ -727,13 +720,12 @@ width:80;
 .image-gallery {
   display: flex;
   justify-content: center;
-  gap: 400px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .gallery-image {
-  max-width: 1400px; 
-  width: 300px;
+  max-width: 100%;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -746,21 +738,29 @@ width:80;
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .sixth-page {
-    padding: 60px 20px;
+  .second-page {
+    flex-direction: column;
+    padding: 40px 20px;
   }
 
-  .sixth-page-heading {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+  .second-page .left-section,
+  .second-page .right-section {
+    width: 100%;
+    padding: 0;
   }
 
   .image-gallery {
-    gap: 40px;
+    flex-direction: column;
   }
 
-  .gallery-image {
-    max-width: 250px;
+  .overlapping-images-container {
+    height: 300px;
+  }
+
+  .image-back,
+  .image-front {
+    width: 90%;
+    transform: translateX(0);
   }
 }
 /* Fourth Page Styling */
